@@ -1,7 +1,7 @@
 package me.jonathing.minecraft.ci_testserver.server;
 
 import me.jonathing.minecraft.ci_testserver.CIException;
-import me.jonathing.minecraft.ci_testserver.CIMainClass;
+import me.jonathing.minecraft.ci_testserver.CIPluginMod;
 import me.jonathing.minecraft.ci_testserver.info.CIPluginInfo;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -28,7 +28,8 @@ public class CIServerHandler
         File testServerFile = new File("./TESTSERVER.txt");
         if (testServerFile.exists())
         {
-            if (!testServerFile.delete()) throw new IOException("Unable to delete pre-existing file \"TESTSERVER.txt\"!");
+            if (!testServerFile.delete())
+                throw new IOException("Unable to delete pre-existing file \"TESTSERVER.txt\"!");
         }
 
         try
@@ -39,11 +40,11 @@ public class CIServerHandler
         }
         catch (IOException e)
         {
-            CIMainClass.LOGGER.fatal("Although the server started successfully, we were unable to write the \"TESTSERVER.txt\" file!");
+            CIPluginMod.LOGGER.fatal("Although the server started successfully, we were unable to write the \"TESTSERVER.txt\" file!");
             throw e;
         }
 
-        CIMainClass.LOGGER.warn("CI server test successful. The game will now crash.");
+        CIPluginMod.LOGGER.warn("CI server test successful. The game will now crash.");
         throw new CIException();
     }
 }
