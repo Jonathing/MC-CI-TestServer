@@ -1,5 +1,13 @@
 package me.jonathing.minecraft.ci_testserver;
 
+/**
+ * This {@link Exception} is designed to signify that this crash is <strong>intentional.</strong>
+ *
+ * @author Jonathing
+ * @see Exception
+ * @see me.jonathing.minecraft.ci_testserver.server.CIServerHandler
+ * @since 1.0.0
+ */
 public class CIException extends Exception
 {
     public CIException()

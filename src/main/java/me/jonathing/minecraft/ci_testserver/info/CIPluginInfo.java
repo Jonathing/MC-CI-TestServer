@@ -7,7 +7,7 @@ package me.jonathing.minecraft.ci_testserver.info;
  * @author Jonathing
  * @see ICIPluginInfo
  * @see DynamicConstant
- * @since 2.0.0
+ * @since 1.0.0
  */
 public final class CIPluginInfo implements ICIPluginInfo
 {
@@ -62,15 +62,6 @@ public final class CIPluginInfo implements ICIPluginInfo
      */
     @DynamicConstant("version")
     public static final String VERSION = "NOT.A.VERSION";
-
-    /**
-     * The version name of ForageCraft (ex. 'ForageCraft: Reborn'), which is dynamically injected on build.
-     * Defaults to 'Not A Version'.
-     *
-     * @see #versionName()
-     */
-    @DynamicConstant("version_name")
-    public static final String VERSION_NAME = "Not A Version";
 
     /**
      * The build time of the Midnight, which is dynamically injected on build. Defaults to {@code 2038-01-19T03:14:08Z},
@@ -150,16 +141,6 @@ public final class CIPluginInfo implements ICIPluginInfo
     public String version()
     {
         return VERSION;
-    }
-
-    /**
-     * @return {@link #VERSION_NAME}
-     * @see ICIPluginInfo#versionName()
-     */
-    @Override
-    public String versionName()
-    {
-        return VERSION_NAME;
     }
 
     /**

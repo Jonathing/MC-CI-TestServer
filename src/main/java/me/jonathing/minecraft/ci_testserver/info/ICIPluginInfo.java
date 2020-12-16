@@ -26,11 +26,6 @@ public interface ICIPluginInfo
     String version();
 
     /**
-     * Returns the build version name of the CI plugin.
-     */
-    String versionName();
-
-    /**
      * Returns the build date of the available CI plugin build, in RFC-3339 format.
      */
     String buildDate();

@@ -56,7 +56,7 @@ jobs:
         echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
         echo "Ready to upload the build output to GitHub."
 
-    - name: Upload The Midnight to GitHub
+    - name: Upload the CI Test Server Plugin to GitHub
       uses: actions/upload-artifact@v2
       with:
         # Artifact name
@@ -79,7 +79,7 @@ jobs:
           java-package: jdk
           architecture: x64
 
-      - name: Prepare to test a Minecraft Server with The Midnight
+      - name: Prepare to test a Minecraft Server
         shell: pwsh
         run: |
           Write-Host "Generating the Minecraft Server's runtime environment..."
@@ -133,9 +133,10 @@ jobs:
           java-package: jdk
           architecture: x64
 
-      - name: Prepare to test a Minecraft Server with The Midnight
+      - name: Prepare to test a Minecraft Server
         run: |
           echo "Generating the Minecraft Server's runtime environment..."
+          mkdir run
           mkdir run/server
           echo "eula=true" >> run/server/eula.txt
           echo "TEST FAILED" >> run/server/TESTSERVER.txt
@@ -185,9 +186,10 @@ jobs:
           java-package: jdk
           architecture: x64
 
-      - name: Prepare to test a Minecraft Server with The Midnight
+      - name: Prepare to test a Minecraft Server
         run: |
           echo "Generating the Minecraft Server's runtime environment..."
+          mkdir run
           mkdir run/server
           echo "eula=true" >> run/server/eula.txt
           echo "TEST FAILED" >> run/server/TESTSERVER.txt
